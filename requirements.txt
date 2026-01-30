@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+httpx
+
+# RAG
+faiss-cpu
+sentence-transformers
+pypdf
+
+# STT
+faster-whisper
+
+# Audio helpers
+pydub
+
+
+python-multipart
