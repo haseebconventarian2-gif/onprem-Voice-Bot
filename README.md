@@ -15,6 +15,14 @@ On-premises banking voice bot with local FAISS retrieval, document-based respons
 
 On-premises banking voice bot with local FAISS retrieval, document-based responses, and WhatsApp integration.
 
+## 📖 The Story
+
+Cloud voice assistants are convenient, but some organizations need customer audio and documents to remain inside their own infrastructure. This project asks whether a complete conversational path—retrieval, language generation, transcription, and speech—can run locally.
+
+The answer is assembled from focused components: FAISS and Sentence Transformers retrieve banking knowledge, Ollama runs the language model, faster-whisper handles speech recognition, and Piper can synthesize the reply. FastAPI and WhatsApp modules expose the local intelligence to applications and messaging workflows.
+
+The repository demonstrates a privacy-oriented alternative to cloud-first voice bots. Its next chapter is packaging the model assets, benchmarking latency on target hardware, encrypting stored audio, and adding a clear offline deployment guide.
+
 ## Highlights
 
 - Local Ollama inference
@@ -88,4 +96,5 @@ This is a learning and reference implementation. Review security, validation, mo
 - Define retention and privacy controls for audio and customer data.
 
 > This README reflects the current codebase. External AI, telephony, and messaging features require their respective accounts, assets, and approvals.
+
 
