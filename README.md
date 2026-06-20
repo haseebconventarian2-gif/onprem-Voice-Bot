@@ -4,14 +4,16 @@
 
 On-premises banking voice bot with local FAISS retrieval, document-based responses, and WhatsApp integration.
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Reference%20Implementation-6366F1)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white&style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Reference%20Implementation-6366F1?style=for-the-badge)
+
+[Story](#-the-story) · [Features](#-features) · [Setup](#-getting-started) · [Configuration](#-configuration)
 
 </div>
 
 ---
 
-## Overview
+## 🎯 Overview
 
 On-premises banking voice bot with local FAISS retrieval, document-based responses, and WhatsApp integration.
 
@@ -23,18 +25,24 @@ The answer is assembled from focused components: FAISS and Sentence Transformers
 
 The repository demonstrates a privacy-oriented alternative to cloud-first voice bots. Its next chapter is packaging the model assets, benchmarking latency on target hardware, encrypting stored audio, and adding a clear offline deployment guide.
 
-## Highlights
+## ✨ Features
 
 - Local Ollama inference
 - FAISS knowledge retrieval
 - Offline speech recognition
 - FastAPI and WhatsApp endpoints
 
-## Tech Stack
+## 🧰 Tech Stack
 
-Python Â· FastAPI Â· Ollama Â· FAISS Â· faster-whisper
+| Technology | Purpose |
+| --- | --- |
+| **Python** | Primary programming language |
+| **FastAPI** | API and web server |
+| **Ollama** | Local language-model runtime |
+| **FAISS** | Vector similarity search |
+| **faster-whisper** | Local speech recognition |
 
-## Getting Started
+## 🚀 Getting Started
 
 ```bash
 git clone https://github.com/haseebconventarian2-gif/onprem-Voice-Bot.git
@@ -45,27 +53,27 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Configuration
+## ⚙️ Configuration
 
 Configure Ollama, Whisper, optional Piper, and WhatsApp values in `.env`.
 
 > Store credentials in `.env` and never commit secrets.
 
-## Run
+## ▶️ Run
 
 ```bash
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-## Project Status
+## 📌 Project Status
 
 This is a learning and reference implementation. Review security, validation, monitoring, and deployment settings before production use.
 
-## Detailed Code Reference
+## 🧩 Detailed Code Reference
 
 **Runtime flow:** `Text/audio -> local STT -> context -> Ollama -> local TTS/text`
 
-### Repository map
+### 📁 Repository Map
 
 - `bank.json` - project file
 - `build_faiss_index.py` - project file
@@ -79,7 +87,7 @@ This is a learning and reference implementation. Review security, validation, mo
 - `routes.py` - project file
 - `whatsapp.py` - project file
 
-### Validation checklist
+## 🧪 Validation Checklist
 
 1. Install dependencies in a clean virtual environment.
 2. Configure only the environment variables needed by enabled integrations.
@@ -87,7 +95,7 @@ This is a learning and reference implementation. Review security, validation, mo
 4. Exercise successful and invalid requests.
 5. Confirm secrets, private datasets, indexes, and model artifacts are ignored.
 
-### Production checklist
+## 🔒 Production Checklist
 
 - Use managed secret storage.
 - Add authentication, authorization, rate limiting, and request-size limits.
@@ -98,3 +106,24 @@ This is a learning and reference implementation. Review security, validation, mo
 > This README reflects the current codebase. External AI, telephony, and messaging features require their respective accounts, assets, and approvals.
 
 
+
+
+## 🛠 Troubleshooting
+
+<details>
+<summary><strong>The application does not start</strong></summary>
+
+Confirm the virtual environment is active, install `requirements.txt`, and check that every required environment variable is defined.
+</details>
+
+<details>
+<summary><strong>An AI or messaging service cannot be reached</strong></summary>
+
+Verify the endpoint, credentials, deployment names, network access, and external service status. Restart the application after changing `.env`.
+</details>
+
+<details>
+<summary><strong>A model, index, or artifact is missing</strong></summary>
+
+Run the repository's documented build or training step and confirm that generated files are stored at the paths expected by the code.
+</details>
