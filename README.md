@@ -52,3 +52,61 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 ## Project Status
 
 This is a learning and reference implementation. Review security, validation, monitoring, and deployment settings before production use.
+
+<!-- code-audit-details -->
+
+## 🔄 Runtime Flow
+
+`Text/audio → local STT → context retrieval → Ollama → local TTS/text`
+
+This flow is derived from the current entry points and service calls.
+
+## 🗂 Code Map
+
+| Path | Responsibility |
+| --- | --- |
+| `bank.json` | Supporting resource |
+| `build_faiss_index.py` | Supporting resource |
+| `chunks.json` | Supporting resource |
+| `main.py` | Application entry point |
+| `onprem.py` | Supporting resource |
+| `onprem_search.py` | Supporting resource |
+| `requirements.txt` | Python dependencies |
+| `routes.py` | HTTP routes and orchestration |
+| `whatsapp.py` | WhatsApp integration |
+
+## 🔐 Environment Variables
+
+No environment-variable reads were detected.
+
+## 🌐 Detected API Routes
+
+| Method | Endpoint |
+| --- | --- |
+| `GET` | `/` |
+| `GET` | `/health` |
+| `GET` | `/ui` |
+| `GET` | `/ui/latest_audio` |
+| `GET` | `/webhook` |
+| `POST` | `/webhook` |
+
+## 🧪 Validation Guide
+
+1. Install dependencies in a clean virtual environment.
+2. Start the documented entry point and test the root or health route.
+3. Exercise one valid and one invalid request.
+4. Verify external-service errors are handled clearly.
+5. Confirm secrets, private data, indexes, and model artifacts are ignored.
+
+## 🔒 Production Checklist
+
+- Use managed secret storage and rotate exposed credentials.
+- Add authentication, authorization, rate limiting, and request-size limits.
+- Add automated tests, structured logging, monitoring, and health checks.
+- Pin and audit dependencies.
+- Define retention and privacy controls for audio and customer data.
+
+## ⚠️ Code-Audit Notes
+
+- Documentation reflects the current repository code and may expose integrations that need separate cloud accounts, model assets, or channel approval.
+- Treat the project as a reference implementation until its security and deployment configuration are hardened.
